@@ -1,17 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="center">
-            <img src="/ui/madi.png" class="img-medium"/>
-        </div>
-        <br>
-        <div class="center text-big bold">
-            Hi! I am your webapp.
-        </div>
-        <script type="text/javascript" src="/ui/main.js">
-        </script>
-    </body>
+<head>
+<style type="text/css">
+	img{
+		height:100px;
+		width: 100px;
+		margin: 10px;
+	}
+</style>
+<script type="text/javascript">
+    var myVar = setInterval(myTimer,3000);
+	var Priyanka=[""];
+	var num=222,i,j,text,textTag;
+	textTag="";
+	for(i=0;i<101;i++)
+	{
+		 text="http://media1.santabanta.com/full5/Indian%20%20Celebrities(F)/Priyanka%20Chopra/priyanka-chopra-"+ num-- +"a.jpg";
+		 Priyanka[i]=text;
+     }
+     for(i=0;i<=36;i++)
+     {
+     	text="http://media1.santabanta.com/full5/Indian%20%20Celebrities(F)/Parineeti%20Chopra/parineeti-chopra-"+i+ "a.jpg";
+     	Priyanka.push(text.toString());
+     }
+
+	var j=0;
+	   
+
+	function myFunction(){
+		var i;
+		textTag="";
+		document.getElementById('iframe').src=Priyanka[j];
+	for(i=0;i<10;i++)
+	 {
+      textTag +="<a target=down href=\" "+Priyanka[j] + "\"" + ">"+ " <img src=\"" +Priyanka[j]+ "\"" +">" +"</a>";
+      j++;
+      if(j===Priyanka.length-1)
+      {
+      	j=0;
+      }
+	 }
+	 
+	 document.getElementById("image").innerHTML =textTag;
+	}
+	   var count=0;
+	   var temp=j;
+	 function myTimer(){
+
+	 	      if(temp <0)
+	 	      	temp =Priyanka.length-8;
+               	 	      
+	   	     console.log(j);
+	   	     if(temp <Priyanka.length-1)
+	   	   document.getElementById("iframe2").src=Priyanka[temp++];
+	   	      else
+	   	      	temp =Priyanka.length-8;
+	   	   if(count===10){
+              count=0;
+              temp= j - 10;
+
+	   	   }
+	   	  count++;
+	   }
+
+</script>
+	<title>Priyanka App</title>
+</head>
+<body onload="myFunction()">
+
+
+
+<button onclick="myFunction();temp +=10;">ClickMe</button>
+<div id="image" style="margin-bottom: 30px"  >
+</div >
+
+<iframe id="iframe" style="margin-left: 90px;border: none" name=down  width="906px" height="450px"></iframe>
+<iframe id="iframe2" style="float: right; border:none;" height="450px"></iframe>
+
+</body>
 </html>
